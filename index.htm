@@ -17,8 +17,16 @@
             width: 340px;
         }
     </style>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
+       $(document).ready(function() {
+           $('ul#tools').prepend('<li class="print"><a href="#print">Click me to print</a></li>');
+           $('ul#tools li.print a').click(function() {
+               window.print();
+               return false;
+           });
+       }); 
+
         function showQuestions() {
             var x = document.getElementById('intro');
             if (txtName.value != "") {
@@ -635,6 +643,7 @@
 
             </div>
             <div id="report" style="display:none;">
+                <a href="#" onclick="window.print(); return false;">Print</a>
                 <table>
                     <tr>
                         <td>Section 1 Score:</td>
