@@ -1,0 +1,88 @@
+﻿/* CSS Document */
+body{
+    	font-family: Arial, sans-serif;
+    	font-size:10pt;
+    	margin:0;
+	padding:0;
+	background-color:#EFEFEA;
+	/* background-image:url(images/new/page_bg.jpg); */
+	margin:0px 0px 0px 0px;
+	text-align:center;
+	background-repeat:repeat-x;
+	
+}
+a{
+	color:#3654A3;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+	color:#5A81E5;
+}
+a.delete{
+	padding:3px;
+	background-color:#CF4900;
+	color:#FFF8AF;
+}
+a.delete:hover{
+	background-color:#8F0A00;
+}
+
+#prof_banner{
+	width:675px;
+	height:50px;
+	padding-top:30px;
+	padding-left:110px;
+	background-image:url(prof_banner.jpg);
+	text-align:center;
+}
+
+#prof_banner h1{
+	font-size:24pt;
+	margin:2px;
+	margin-top:8px;
+}
+
+#container{
+    	text-align:left;
+	width:785px;
+	margin:0 auto;
+	border-left:1px solid #DED8C8;
+	border-right:1px solid #DED8C8;
+	background-color:#FFFFFF;
+}
+
+#lblSubmit {
+    margin-left:350px;
+}
+
+#footer{
+	/*background-color:#D4A53B;*/
+	background-image:url(footer_bg.jpg); 
+	clear:both;
+	padding:2px;
+	color:#EFEFEA;
+	font-size:8pt;
+	text-align:center;
+	border-left:1px solid #DED8C8;
+	border-right:1px solid #DED8C8;
+}
+
+/* Clearfix generic for making sure containing divs go all the way around content... */
+.clearfix:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+* html>body .clearfix {
+	display: inline; 
+	width: 100%;
+}
+			
+* html .clearfix {
+	/* Hides from IE-mac \*/
+	height: 1%;
+	/* End hide from IE-mac */
+}

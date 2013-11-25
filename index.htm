@@ -1,0 +1,662 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Index of Learning Styles</title>
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 340px;
+        }
+    </style>
+
+    <script>
+        function showQuestions() {
+            var x = document.getElementById('intro');
+            if (txtName.value != "") {
+                x.style.display = 'none';
+                document.getElementById('questionare').style.display = 'block';
+            }
+            else {
+                x.style.display = 'block';
+                document.getElementById('questionare').style.display = 'none';
+            }
+        }
+
+        function getScore() {
+            var sec1a = 0, sec1b = 0, sec2a = 0, sec2b = 0, sec3a = 0, sec3b = 0, sec4a = 0, sec4b = 0;
+            var x;
+            for (var i = 1; i <= 11; i++) {
+                x = document.getElementsByName('rblQ'+i);
+                if (x[0].checked == true)
+                    sec1a++;
+                else
+                    sec1b++;
+            }
+
+            for (var i = 12; i <= 22; i++) {
+                x = document.getElementsByName('rblQ' + i);
+                if (x[0].checked == true)
+                    sec2a++;
+                else
+                    sec2b++;
+            }
+
+            for (var i = 23; i <= 33; i++) {
+                x = document.getElementsByName('rblQ' + i);
+                if (x[0].checked == true)
+                    sec3a++;
+                else
+                    sec3b++;
+            }
+
+            for (var i = 34; i <= 44; i++) {
+                x = document.getElementsByName('rblQ' + i);
+                if (x[0].checked == true)
+                    sec4a++;
+                else
+                    sec4b++;
+            }
+            
+            var sec1Score = sec1a - sec1b;
+            var sec2Score = sec2a - sec2b;
+            var sec3Score = sec3a - sec3b;
+            var sec4Score = sec4a - sec4b;
+
+            document.getElementById('lblScore1').textContent = sec1Score;
+            document.getElementById('lblScore2').textContent = sec2Score;
+            document.getElementById('lblScore3').textContent = sec3Score;
+            document.getElementById('lblScore4').textContent = sec4Score;
+
+            document.getElementById('questionare').style.display = 'none';
+            document.getElementById('report').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="prof_banner">
+            <h1 style="font-size:14pt"></h1>
+        </div>
+            <h1>Bus 10: Index of Learning Styles</h1>
+        <div id="intro">
+            <p style="text-align:center;">
+                 <a target="_parent" href="http://www.cob.sjsu.edu/org&amp;mgt/">Department of Organization and Management</a><br/>
+                <a href="http://www.sjsu.edu/" target="blank">San José State University</a><br/><br/>
+                <a href="http://www.cob.sjsu.edu/" target="_parent">College of Business</a><br/>
+                One Washington Square<br/>
+                San José, Ca 95192-0070
+            </p>
+            <ul style="font-family:Verdana;">
+                <b> ILS users should be aware of two important points:</b>
+                <li>The ILS results provide an indication of an individual's learning preferences and an even better indication of the preference profile of a group of students (e.g. a class), but they should not be over-interpreted. If someone does not agree with the ILS assessment of his or her preferences, trust that individual's judgment over the instrument results.</li> 
+                <li>  A student's learning style profile provides an indication of possible strengths and possible tendencies or habits that might lead to difficulty in academic settings. The profile does not reflect a student's suitability or unsuitability for a particular subject, discipline, or profession. Labeling students in this way is at best misleading, and can be destructive if the student uses the label as justification for a major shift in curriculum or career goals. (A learning style preference also does not serve as an excuse for a bad grade on the student's last physics test.)</li>
+            </ul>
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align:right" class="auto-style2">
+                        <span id="UserName">Your Name <span style="color:red;">*</span></span>
+                    </td>
+                    <td><input type="text" id="txtName" class="form-control" required/></td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>
+                        <input type="submit" name="btnLogin" value="Take the test" id="btnLogin" onclick="showQuestions()" />
+                    </td>
+                </tr>
+            </table>
+           </div>
+            <div id="questionare" style="display:none;">
+                <h2>Section-1</h2>
+                <table border="1" style="width:600px;">
+                    <tbody><tr><td>
+                        <span id="lblQ1">1. When I start a homework problem, I am more likely to</span>
+                        <table id="rblQ1">
+	                        <tbody>
+                                <tr>
+		                            <td>
+                                        <input id="rblQ1_0" type="radio" name="rblQ1" value="a" required>
+                                        <label for="rblQ1_0">start working on the solution immediately.</label>
+		                            </td>
+	                            </tr>
+                                <tr>
+		                            <td>
+                                        <input id="rblQ1_1" type="radio" name="rblQ1" value="b" required>
+                                        <label for="rblQ1_1">try to fully understand the problem first</label>
+		                            </td>
+	                            </tr>
+                            </tbody>
+                        </table>
+            
+                    </td></tr>
+                    <tr><td>
+                        <span id="lblQ2">2. When I am learning something new, it helps me to</span>
+                        <span id="RequiredFieldValidator2" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                        <br>
+                        <table id="rblQ2">
+	            <tbody><tr>
+		            <td><input id="rblQ2_0" type="radio" name="rblQ2" value="a"><label for="rblQ2_0">talk about it.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ2_1" type="radio" name="rblQ2" value="b"><label for="rblQ2_1">think about it.</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                        <span id="lblQ3">3. In classes I have taken</span>
+                        <span id="RequiredFieldValidator3" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                        <br>
+                        <table id="rblQ3">
+	            <tbody><tr>
+		            <td><input id="rblQ3_0" type="radio" name="rblQ3" value="a"><label for="rblQ3_0"> I have usually gotten to know many of the students.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ3_1" type="radio" name="rblQ3" value="b"><label for="rblQ3_1">I have rarely gotten to know many of the students.</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                        <span id="lblQ4">4. I more easily remember</span>
+                        <span id="RequiredFieldValidator4" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                        <br>
+                        <table id="rblQ4">
+	            <tbody><tr>
+		            <td><input id="rblQ4_0" type="radio" name="rblQ4" value="a"><label for="rblQ4_0"> something I have done.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ4_1" type="radio" name="rblQ4" value="b"><label for="rblQ4_1">something I have thought a lot about. </label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ5">5. I am more likely to be considered</span>
+                    <table id="rblQ5">
+	            <tbody><tr>
+		            <td><input id="rblQ5_0" type="radio" name="rblQ5" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ5$0\',\'\')', 0)"><label for="rblQ5_0">outgoing</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ5_1" type="radio" name="rblQ5" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ5$1\',\'\')', 0)"><label for="rblQ5_1">reserved</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ6">6. I understand something better after I</span>
+                    <table id="rblQ6">
+	            <tbody><tr>
+		            <td><input id="rblQ6_0" type="radio" name="rblQ6" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ6$0\',\'\')', 0)"><label for="rblQ6_0">try it out.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ6_1" type="radio" name="rblQ6" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ6$1\',\'\')', 0)"><label for="rblQ6_1">think it through</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ7">7. In a study group working on difficult material, I am more likely to</span>
+                        <span id="RequiredFieldValidator7" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                    <br>
+                    <table id="rblQ7">
+	            <tbody><tr>
+		            <td><input id="rblQ7_0" type="radio" name="rblQ7" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ7$0\',\'\')', 0)"><label for="rblQ7_0">jump in and contribute ideas</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ7_1" type="radio" name="rblQ7" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ7$1\',\'\')', 0)"><label for="rblQ7_1">sit back and listen.</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ8">8. I prefer to study</span>
+                        <span id="RequiredFieldValidator8" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                    <br>
+                    <table id="rblQ8">
+	            <tbody><tr>
+		            <td><input id="rblQ8_0" type="radio" name="rblQ8" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ8$0\',\'\')', 0)"><label for="rblQ8_0">in a study group.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ8_1" type="radio" name="rblQ8" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ8$1\',\'\')', 0)"><label for="rblQ8_1">alone.</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ9">9. I would rather first</span>
+                        <span id="RequiredFieldValidator9" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                    <br>
+                    <table id="rblQ9">
+	            <tbody><tr>
+		            <td><input id="rblQ9_0" type="radio" name="rblQ9" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ9$0\',\'\')', 0)"><label for="rblQ9_0">  try things out.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ9_1" type="radio" name="rblQ9" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ9$1\',\'\')', 0)"><label for="rblQ9_1">think about how I'm going to do it.</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ10">10. When I have to work on a group project, I first want to</span>
+                        <span id="RequiredFieldValidator10" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                    <br>
+                    <table id="rblQ10">
+	            <tbody><tr>
+		            <td><input id="rblQ10_0" type="radio" name="rblQ10" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ10$0\',\'\')', 0)"><label for="rblQ10_0">have group brainstorming where everyone contributes ideas.</label></td>
+	            </tr><tr>
+		            <td><input id="rblQ10_1" type="radio" name="rblQ10" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ10$1\',\'\')', 0)"><label for="rblQ10_1">brainstorm individually and then come together as a group to compare ideas.</label></td>
+	            </tr>
+            </tbody></table>
+                    </td></tr>
+                    <tr><td>
+                    <span id="lblQ11">11. The idea of doing homework in groups, with one grade for the entire group</span>
+                    <table id="rblQ11">
+	                    <tbody><tr>
+		                    <td><input id="rblQ11_0" type="radio" name="rblQ11" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ11$0\',\'\')', 0)"><label for="rblQ11_0"> appeals to me.</label></td>
+	                    </tr><tr>
+		                    <td><input id="rblQ11_1" type="radio" name="rblQ11" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ11$1\',\'\')', 0)"><label for="rblQ11_1"> does not appeal to me.</label></td>
+	                    </tr>
+                        </tbody>
+                    </table>
+                    </td></tr>
+                    </tbody>
+                </table>
+
+                <h2>Section-2</h2>
+                <table border="1" style="width:600px;">
+                <tbody><tr><td>
+                <span id="lblQ12">12. I find it easier</span>
+                    <span id="RequiredFieldValidator12" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ12">
+	        <tbody><tr>
+		        <td><input id="rblQ12_0" type="radio" name="rblQ12" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ12$0\',\'\')', 0)"><label for="rblQ12_0"> to learn facts.</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ12_1" type="radio" name="rblQ12" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ12$1\',\'\')', 0)"><label for="rblQ12_1">to learn concepts.</label></td>
+	        </tr>
+        </tbody></table>
+                </td></tr>
+                <tr><td>
+                <span id="lblQ13">13. In reading nonfiction, I prefer</span>
+                    <span id="RequiredFieldValidator13" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ13">
+	        <tbody><tr>
+		        <td><input id="rblQ13_0" type="radio" name="rblQ13" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ13$0\',\'\')', 0)"><label for="rblQ13_0"> something that teaches me new facts or tells me how to do something.</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ13_1" type="radio" name="rblQ13" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ13$1\',\'\')', 0)"><label for="rblQ13_1">something that gives me new ideas to think about.</label></td>
+	        </tr>
+        </tbody></table>
+                </td></tr>
+                    <tr><td>
+                    <span id="lblQ14">14. I prefer the idea of</span>
+                        <span id="RequiredFieldValidator14" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ14">
+	        <tbody><tr>
+		        <td><input id="rblQ14_0" type="radio" name="rblQ14" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ14$0\',\'\')', 0)"><label for="rblQ14_0"> certainty</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ14_1" type="radio" name="rblQ14" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ14$1\',\'\')', 0)"><label for="rblQ14_1">theory</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                 <tr><td>
+                 <span id="lblQ15">15. I am more likely to be considered</span>
+                     <span id="RequiredFieldValidator15" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ15">
+	        <tbody><tr>
+		        <td><input id="rblQ15_0" type="radio" name="rblQ15" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ15$0\',\'\')', 0)"><label for="rblQ15_0"> careful about the details of my work.</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ15_1" type="radio" name="rblQ15" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ15$1\',\'\')', 0)"><label for="rblQ15_1">creative about how to do my work.</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ16">16. When I am reading for enjoyment, I like writers to</span>
+                        <span id="RequiredFieldValidator16" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ16">
+	        <tbody><tr>
+		        <td><input id="rblQ16_0" type="radio" name="rblQ16" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ16$0\',\'\')', 0)"><label for="rblQ16_0"> clearly say what they mean</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ16_1" type="radio" name="rblQ16" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ16$1\',\'\')', 0)"><label for="rblQ16_1">say things in creative, interesting ways.</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ17">17. When I have to perform a task, I prefer to</span>
+                        <span id="RequiredFieldValidator17" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ17">
+	        <tbody><tr>
+		        <td><input id="rblQ17_0" type="radio" name="rblQ17" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ17$0\',\'\')', 0)"><label for="rblQ17_0"> master one way of doing it.</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ17_1" type="radio" name="rblQ17" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ17$1\',\'\')', 0)"><label for="rblQ17_1">come up with new ways of doing it.</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ18">18. I would rather be considered</span>
+                        <span id="RequiredFieldValidator18" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ18">
+	        <tbody><tr>
+		        <td><input id="rblQ18_0" type="radio" name="rblQ18" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ18$0\',\'\')', 0)"><label for="rblQ18_0"> realistic</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ18_1" type="radio" name="rblQ18" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ18$1\',\'\')', 0)"><label for="rblQ18_1">innovative</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ19">19. If I were a teacher, I would rather teach a course</span>
+                        <span id="RequiredFieldValidator19" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ19">
+	        <tbody><tr>
+		        <td><input id="rblQ19_0" type="radio" name="rblQ19" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ19$0\',\'\')', 0)"><label for="rblQ19_0"> that deals with facts and real life situations.</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ19_1" type="radio" name="rblQ19" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ19$1\',\'\')', 0)"><label for="rblQ19_1">that deals with ideas and theories.</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ20">20. I consider it higher praise to call someone</span>
+                        <span id="RequiredFieldValidator20" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ20">
+	        <tbody><tr>
+		        <td><input id="rblQ20_0" type="radio" name="rblQ20" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ20$0\',\'\')', 0)"><label for="rblQ20_0"> sensible</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ20_1" type="radio" name="rblQ20" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ20$1\',\'\')', 0)"><label for="rblQ20_1">imaginative</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ21">21. I prefer courses that emphasize</span>
+                        <span id="RequiredFieldValidator21" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ21">
+	        <tbody><tr>
+		        <td><input id="rblQ21_0" type="radio" name="rblQ21" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ21$0\',\'\')', 0)"><label for="rblQ21_0"> concrete material (facts, data).</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ21_1" type="radio" name="rblQ21" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ21$1\',\'\')', 0)"><label for="rblQ21_1">abstract material (concepts, theories).</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                    <tr><td>
+                <span id="lblQ22">22. When I am doing long calculations,</span>
+                        <span id="RequiredFieldValidator22" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+                <table id="rblQ22">
+	        <tbody><tr>
+		        <td><input id="rblQ22_0" type="radio" name="rblQ22" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ22$0\',\'\')', 0)"><label for="rblQ22_0"> I tend to repeat all my steps and check my work carefully..</label></td>
+	        </tr><tr>
+		        <td><input id="rblQ22_1" type="radio" name="rblQ22" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ22$1\',\'\')', 0)"><label for="rblQ22_1">I find checking my work tiresome and have to force myself to do it.</label></td>
+	        </tr>
+        </tbody></table></td></tr>
+                </tbody></table>
+
+                <h2>Section-3</h2>
+                <table border="1" style="width:600px;">
+            <tbody><tr><td>
+        <span id="lblQ23">23. When I get directions to a new place, I prefer</span>
+                <span id="RequiredFieldValidator23" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ23">
+	<tbody><tr>
+		<td><input id="rblQ23_0" type="radio" name="rblQ23" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ23$0\',\'\')', 0)"><label for="rblQ23_0"> a map.</label></td>
+	</tr><tr>
+		<td><input id="rblQ23_1" type="radio" name="rblQ23" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ23$1\',\'\')', 0)"><label for="rblQ23_1">written instructions.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ24">24. When I see a diagram or sketch in class, I am most likely to remember</span>
+                <span id="RequiredFieldValidator24" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ24">
+	<tbody><tr>
+		<td><input id="rblQ24_0" type="radio" name="rblQ24" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ24$0\',\'\')', 0)"><label for="rblQ24_0"> the picture.</label></td>
+	</tr><tr>
+		<td><input id="rblQ24_1" type="radio" name="rblQ24" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ24$1\',\'\')', 0)"><label for="rblQ24_1">what the instructor said about it.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ25">25. I like teachers</span>
+                <span id="RequiredFieldValidator25" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ25">
+	<tbody><tr>
+		<td><input id="rblQ25_0" type="radio" name="rblQ25" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ25$0\',\'\')', 0)"><label for="rblQ25_0"> who put a lot of diagrams on the board.</label></td>
+	</tr><tr>
+		<td><input id="rblQ25_1" type="radio" name="rblQ25" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ25$1\',\'\')', 0)"><label for="rblQ25_1">who spend a lot of time explaining.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+         <span id="lblQ26">26. When someone is showing me data, I prefer</span>
+                <span id="RequiredFieldValidator26" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ26">
+	<tbody><tr>
+		<td><input id="rblQ26_0" type="radio" name="rblQ26" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ26$0\',\'\')', 0)"><label for="rblQ26_0"> charts or graphs.</label></td>
+	</tr><tr>
+		<td><input id="rblQ26_1" type="radio" name="rblQ26" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ26$1\',\'\')', 0)"><label for="rblQ26_1"> text summarizing the results.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+         <span id="lblQ27">27. When I meet people at a party, I am more likely to remember</span>
+                <span id="RequiredFieldValidator27" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ27">
+	<tbody><tr>
+		<td><input id="rblQ27_0" type="radio" name="rblQ27" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ27$0\',\'\')', 0)"><label for="rblQ27_0"> what they looked like.</label></td>
+	</tr><tr>
+		<td><input id="rblQ27_1" type="radio" name="rblQ27" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ27$1\',\'\')', 0)"><label for="rblQ27_1">what they said about themselves.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+         <span id="lblQ28">28. For entertainment, I would rather</span>
+                <span id="RequiredFieldValidator28" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ28">
+	<tbody><tr>
+		<td><input id="rblQ28_0" type="radio" name="rblQ28" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ28$0\',\'\')', 0)"><label for="rblQ28_0"> watch television.</label></td>
+	</tr><tr>
+		<td><input id="rblQ28_1" type="radio" name="rblQ28" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ28$1\',\'\')', 0)"><label for="rblQ28_1"> read a book.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ29">29. I tend to picture places I have been</span>
+                <span id="RequiredFieldValidator29" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ29">
+	<tbody><tr>
+		<td><input id="rblQ29_0" type="radio" name="rblQ29" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ29$0\',\'\')', 0)"><label for="rblQ29_0"> easily and fairly accurately.</label></td>
+	</tr><tr>
+		<td><input id="rblQ29_1" type="radio" name="rblQ29" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ29$1\',\'\')', 0)"><label for="rblQ29_1">with difficulty and without much detail.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ30">30. When I think about what I did yesterday, I am most likely to get</span>
+                <span id="RequiredFieldValidator30" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ30">
+	<tbody><tr>
+		<td><input id="rblQ30_0" type="radio" name="rblQ30" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ30$0\',\'\')', 0)"><label for="rblQ30_0"> a picture.</label></td>
+	</tr><tr>
+		<td><input id="rblQ30_1" type="radio" name="rblQ30" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ30$1\',\'\')', 0)"><label for="rblQ30_1">words</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ31">31. In a book with lots of pictures and charts, I am likely to</span>
+        <span id="RequiredFieldValidator31" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+                <br>
+        <table id="rblQ31">
+	<tbody><tr>
+		<td><input id="rblQ31_0" type="radio" name="rblQ31" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ31$0\',\'\')', 0)"><label for="rblQ31_0"> look over the pictures and charts carefully.</label></td>
+	</tr><tr>
+		<td><input id="rblQ31_1" type="radio" name="rblQ31" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ31$1\',\'\')', 0)"><label for="rblQ31_1"> focus on the written text.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ32">32. I prefer to get new information in</span>
+                <span id="RequiredFieldValidator32" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ32">
+	<tbody><tr>
+		<td><input id="rblQ32_0" type="radio" name="rblQ32" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ32$0\',\'\')', 0)"><label for="rblQ32_0"> pictures, diagrams, graphs, or maps.</label></td>
+	</tr><tr>
+		<td><input id="rblQ32_1" type="radio" name="rblQ32" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ32$1\',\'\')', 0)"><label for="rblQ32_1">written directions or verbal information.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ33">33. I remember best</span>
+                <span id="RequiredFieldValidator33" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ33">
+	<tbody><tr>
+		<td><input id="rblQ33_0" type="radio" name="rblQ33" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ33$0\',\'\')', 0)"><label for="rblQ33_0">what I see.</label></td>
+	</tr><tr>
+		<td><input id="rblQ33_1" type="radio" name="rblQ33" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ33$1\',\'\')', 0)"><label for="rblQ33_1">what I hear.</label></td>
+	</tr>
+</tbody></table></td></tr>
+        </tbody></table>
+
+                <h2>Section-4</h2>
+                <table border="1" style="width:600px;">
+            <tbody><tr><td>
+        <span id="lblQ34">34. When I am learning a new subject, I prefer to</span>
+                <span id="RequiredFieldValidator34" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ34">
+	<tbody><tr>
+		<td><input id="rblQ34_0" type="radio" name="rblQ34" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ34$0\',\'\')', 0)"><label for="rblQ34_0"> stay focused on that subject, learning as much about it as I can.</label></td>
+	</tr><tr>
+		<td><input id="rblQ34_1" type="radio" name="rblQ34" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ34$1\',\'\')', 0)"><label for="rblQ34_1">try to make connections between that subject and related subjects.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ35">35. Some teachers start their lectures with an outline of what they will cover. Such outlines are</span>
+        <table id="rblQ35">
+	<tbody><tr>
+		<td><input id="rblQ35_0" type="radio" name="rblQ35" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ35$0\',\'\')', 0)"><label for="rblQ35_0"> somewhat helpful to me.</label></td>
+	</tr><tr>
+		<td><input id="rblQ35_1" type="radio" name="rblQ35" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ35$1\',\'\')', 0)"><label for="rblQ35_1">very helpful to me.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ36">36. When writing a paper, I am more likely to</span>
+                <span id="RequiredFieldValidator36" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ36">
+	<tbody><tr>
+		<td><input id="rblQ36_0" type="radio" name="rblQ36" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ36$0\',\'\')', 0)"><label for="rblQ36_0"> work on (think about or write) the beginning of the paper and progress forward.</label></td>
+	</tr><tr>
+		<td><input id="rblQ36_1" type="radio" name="rblQ36" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ36$1\',\'\')', 0)"><label for="rblQ36_1"> work on (think about or write) different parts of the paper and then order them.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ37">37. I tend to</span>
+                <span id="RequiredFieldValidator37" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ37">
+	<tbody><tr>
+		<td><input id="rblQ37_0" type="radio" name="rblQ37" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ37$0\',\'\')', 0)"><label for="rblQ37_0"> understand details of a subject but may be fuzzy about its overall structure.</label></td>
+	</tr><tr>
+		<td><input id="rblQ37_1" type="radio" name="rblQ37" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ37$1\',\'\')', 0)"><label for="rblQ37_1">understand the overall structure but may be fuzzy about details.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ38">38. When I solve math problems</span>
+                <span id="RequiredFieldValidator38" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ38">
+	<tbody><tr>
+		<td><input id="rblQ38_0" type="radio" name="rblQ38" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ38$0\',\'\')', 0)"><label for="rblQ38_0"> I usually work my way to the solutions one step at a time.</label></td>
+	</tr><tr>
+		<td><input id="rblQ38_1" type="radio" name="rblQ38" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ38$1\',\'\')', 0)"><label for="rblQ38_1">I often just see the solutions but then have to struggle to figure out the steps to get to them.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ39">39. It is more important to me that an instructor</span>
+                <span id="RequiredFieldValidator39" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ39">
+	<tbody><tr>
+		<td><input id="rblQ39_0" type="radio" name="rblQ39" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ39$0\',\'\')', 0)"><label for="rblQ39_0">  lay out the material in clear sequential steps.</label></td>
+	</tr><tr>
+		<td><input id="rblQ39_1" type="radio" name="rblQ39" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ39$1\',\'\')', 0)"><label for="rblQ39_1"> give me an overall picture and relate the material to other subjects.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ40">40. When solving problems in a group, I would be more likely to</span>
+                <span id="RequiredFieldValidator40" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ40">
+	<tbody><tr>
+		<td><input id="rblQ40_0" type="radio" name="rblQ40" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ40$0\',\'\')', 0)"><label for="rblQ40_0">  think of the steps in the solution process.</label></td>
+	</tr><tr>
+		<td><input id="rblQ40_1" type="radio" name="rblQ40" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ40$1\',\'\')', 0)"><label for="rblQ40_1"> think of possible consequences or applications of the solution in a wide range of areas.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ41">41. When I'm analyzing a story or a novel</span>
+                <span id="RequiredFieldValidator41" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ41">
+	<tbody><tr>
+		<td><input id="rblQ41_0" type="radio" name="rblQ41" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ41$0\',\'\')', 0)"><label for="rblQ41_0"> I think of the incidents and try to put them together to figure out the themes.</label></td>
+	</tr><tr>
+		<td><input id="rblQ41_1" type="radio" name="rblQ41" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ41$1\',\'\')', 0)"><label for="rblQ41_1">I just know what the themes are when I finish reading and then I have to go back and find the incidents that demonstrate them.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ42">42. I learn</span>
+                <span id="RequiredFieldValidator42" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ42">
+	<tbody><tr>
+		<td><input id="rblQ42_0" type="radio" name="rblQ42" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ42$0\',\'\')', 0)"><label for="rblQ42_0"> at a fairly regular pace. If I study hard, I'll 'get it.'</label></td>
+	</tr><tr>
+		<td><input id="rblQ42_1" type="radio" name="rblQ42" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ42$1\',\'\')', 0)"><label for="rblQ42_1">in fits and starts. I'll be totally confused and then suddenly it all 'clicks.'</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ43">43. When considering a body of information, I am more likely to</span>
+                <span id="RequiredFieldValidator43" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ43">
+	<tbody><tr>
+		<td><input id="rblQ43_0" type="radio" name="rblQ43" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ43$0\',\'\')', 0)"><label for="rblQ43_0"> focus on details and miss the big picture.</label></td>
+	</tr><tr>
+		<td><input id="rblQ43_1" type="radio" name="rblQ43" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ43$1\',\'\')', 0)"><label for="rblQ43_1">try to understand the big picture before getting into the details.</label></td>
+	</tr>
+</tbody></table></td></tr>
+            <tr><td>
+        <span id="lblQ44">44. Once I understand</span>
+                <span id="RequiredFieldValidator44" style="color:Red;font-weight:bold;visibility:hidden;"> * Please choose your option</span>
+        <br>
+        <table id="rblQ44">
+	<tbody><tr>
+		<td><input id="rblQ44_0" type="radio" name="rblQ44" value="a" onclick="javascript: setTimeout('__doPostBack(\'rblQ44$0\',\'\')', 0)"><label for="rblQ44_0">all the parts, I understand the whole thing.</label></td>
+	</tr><tr>
+		<td><input id="rblQ44_1" type="radio" name="rblQ44" value="b" onclick="javascript: setTimeout('__doPostBack(\'rblQ44$1\',\'\')', 0)"><label for="rblQ44_1">the whole thing, I see how the parts fit.</label></td>
+	</tr>
+</tbody></table></td></tr>
+        </tbody></table>
+
+                <input type="button" value="Get Score" onclick="getScore()" />
+
+            </div>
+            <div id="report" style="display:none;">
+                <table>
+                    <tr>
+                        <td>Section 1 Score:</td>
+                        <td><label id="lblScore1"  /></td>
+                    </tr>
+                    <tr>
+                        <td>Section 2 Score:</td>
+                        <td><label id="lblScore2"/></td>
+                    </tr>
+                    <tr>
+                        <td>Section 3 Score:</td>
+                        <td><label id="lblScore3"/></td>
+                    </tr>
+                    <tr>
+                        <td>Section 4 Score:</td>
+                        <td><label id="lblScore4"/></td>
+                    </tr>
+                </table>
+            </div>
+        <div id="footer">One Washington Square - San Jose, CA 95192-0162 - 408.924.3420</div>
+    </div>
+
+    
+</body>
+</html>
