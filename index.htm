@@ -18,8 +18,11 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
     <script>
-       $(document).ready(function() {
+        var counter = 10;
+
+        $(document).ready(function() {
            $('ul#tools').prepend('<li class="print"><a href="#print">Click me to print</a></li>');
            $('ul#tools li.print a').click(function() {
                window.print();
@@ -37,16 +40,31 @@
                 x.style.display = 'block';
                 document.getElementById('questionare').style.display = 'none';
             }
+
+            setInterval("showTimer()", 1000);
+        }
+
+        function showTimer() {
+            counter = counter - 1;
+            document.getElementById('timer').innerHTML = '<strong>Remaining Time: '+ parseInt(counter / 60,10) + ':' + counter % 60+'</strong>';
+            if (counter === (0)) {
+                if (confirm('Ur exam is timed out')) {
+                    getScore();
+                }
+                else
+                    getScore();
+            }
         }
 
         function getScore() {
+            document.getElementById('studentName').innerHTML = 'Student Name: '+document.getElementById('txtName').value;
             var sec1a = 0, sec1b = 0, sec2a = 0, sec2b = 0, sec3a = 0, sec3b = 0, sec4a = 0, sec4b = 0;
             var x;
             for (var i = 1; i <= 11; i++) {
                 x = document.getElementsByName('rblQ'+i);
                 if (x[0].checked == true)
                     sec1a++;
-                else
+                else if (x[1].checked == true)
                     sec1b++;
             }
 
@@ -54,7 +72,7 @@
                 x = document.getElementsByName('rblQ' + i);
                 if (x[0].checked == true)
                     sec2a++;
-                else
+                else if (x[1].checked == true)
                     sec2b++;
             }
 
@@ -62,7 +80,7 @@
                 x = document.getElementsByName('rblQ' + i);
                 if (x[0].checked == true)
                     sec3a++;
-                else
+                else if (x[1].checked == true)
                     sec3b++;
             }
 
@@ -70,7 +88,7 @@
                 x = document.getElementsByName('rblQ' + i);
                 if (x[0].checked == true)
                     sec4a++;
-                else
+                else if (x[1].checked == true)
                     sec4b++;
             }
             
@@ -87,6 +105,10 @@
             document.getElementById('questionare').style.display = 'none';
             document.getElementById('report').style.display = 'block';
         }
+
+        function countdownTimer() {
+
+        } 
     </script>
 </head>
 <body>
@@ -95,35 +117,37 @@
             <h1 style="font-size:14pt"></h1>
         </div>
             <h1>Bus 10: Index of Learning Styles</h1>
-        <div id="intro">
-            <p style="text-align:center;">
-                 <a target="_parent" href="http://www.cob.sjsu.edu/org&amp;mgt/">Department of Organization and Management</a><br/>
-                <a href="http://www.sjsu.edu/" target="blank">San José State University</a><br/><br/>
-                <a href="http://www.cob.sjsu.edu/" target="_parent">College of Business</a><br/>
-                One Washington Square<br/>
-                San José, Ca 95192-0070
-            </p>
-            <ul style="font-family:Verdana;">
-                <b> ILS users should be aware of two important points:</b>
-                <li>The ILS results provide an indication of an individual's learning preferences and an even better indication of the preference profile of a group of students (e.g. a class), but they should not be over-interpreted. If someone does not agree with the ILS assessment of his or her preferences, trust that individual's judgment over the instrument results.</li> 
-                <li>  A student's learning style profile provides an indication of possible strengths and possible tendencies or habits that might lead to difficulty in academic settings. The profile does not reflect a student's suitability or unsuitability for a particular subject, discipline, or profession. Labeling students in this way is at best misleading, and can be destructive if the student uses the label as justification for a major shift in curriculum or career goals. (A learning style preference also does not serve as an excuse for a bad grade on the student's last physics test.)</li>
-            </ul>
-            <table class="auto-style1">
-                <tr>
-                    <td style="text-align:right" class="auto-style2">
-                        <span id="UserName">Your Name <span style="color:red;">*</span></span>
-                    </td>
-                    <td><input type="text" id="txtName" class="form-control" required/></td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>
-                        <input type="submit" name="btnLogin" value="Take the test" id="btnLogin" onclick="showQuestions()" />
-                    </td>
-                </tr>
-            </table>
-           </div>
+            <div id="intro">
+                <p style="text-align:center;">
+                     <a target="_parent" href="http://www.cob.sjsu.edu/org&amp;mgt/">Department of Organization and Management</a><br/>
+                    <a href="http://www.sjsu.edu/" target="blank">San José State University</a><br/><br/>
+                    <a href="http://www.cob.sjsu.edu/" target="_parent">College of Business</a><br/>
+                    One Washington Square<br/>
+                    San José, Ca 95192-0070
+                </p>
+                <ul style="font-family:Verdana;">
+                    <b> ILS users should be aware of two important points:</b>
+                    <li>The ILS results provide an indication of an individual's learning preferences and an even better indication of the preference profile of a group of students (e.g. a class), but they should not be over-interpreted. If someone does not agree with the ILS assessment of his or her preferences, trust that individual's judgment over the instrument results.</li> 
+                    <li>  A student's learning style profile provides an indication of possible strengths and possible tendencies or habits that might lead to difficulty in academic settings. The profile does not reflect a student's suitability or unsuitability for a particular subject, discipline, or profession. Labeling students in this way is at best misleading, and can be destructive if the student uses the label as justification for a major shift in curriculum or career goals. (A learning style preference also does not serve as an excuse for a bad grade on the student's last physics test.)</li>
+                </ul>
+                <table class="auto-style1">
+                    <tr>
+                        <td style="text-align:right" class="auto-style2">
+                            <span id="UserName">Your Name <span style="color:red;">*</span></span>
+                        </td>
+                        <td><input type="text" id="txtName" class="form-control" required/></td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2">&nbsp;</td>
+                        <td>
+                            <input type="submit" name="btnLogin" value="Take the test" id="btnLogin" onclick="showQuestions()" />
+                        </td>
+                    </tr>
+                </table>
+               </div>
             <div id="questionare" style="display:none;">
+                
+                <p style="position:fixed;padding-left: 620px;" id="timer"></p>
                 <h2>Section-1</h2>
                 <table border="1" style="width:600px;">
                     <tbody><tr><td>
@@ -643,6 +667,7 @@
 
             </div>
             <div id="report" style="display:none;">
+                <h2 id="studentName"></h2>
                 <a href="#" onclick="window.print(); return false;">Print</a>
                 <table>
                     <tr>
