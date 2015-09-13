@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html lang="en">
+	<head>
+		<title>Rahul Akurati|Login Page</title>
+		
+	</head>
+	<body>
+		<header>
+		</header>
+		<section>
+			<form >
+				<h2>Welcome to Login</h2>
+				<input type="text" id="txtUserName" placeholder="E-Mail"/>
+				<input type="password" id="txtPassword" placeholder="Password" />
+				<input type="submit" onClick="validate()" value="login" />
+			</form>
+		</section>
+		<aside>
+		</aside>
+	</body>
+	<script>
+		function validate()
+		{
+			if ((document.getElementById("txtUserName").value==="test")&&(document.getElementById("txtPassword").value==="123")) 
+			{
+				window.href="ques.html";
+			}
+		}
+	</script>
+</html>
