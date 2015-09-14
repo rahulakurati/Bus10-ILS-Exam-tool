@@ -1,0 +1,52 @@
+body{
+	background-color: #EFEFEA;
+	font-family: 'Maven Pro', sans-serif;
+}
+.container{
+	background-color: white;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+
+.container:before,.container:after{
+	display:table;
+	content:" "
+}
+
+.container:after{
+	clear:both
+}
+
+.dvbluebanner{
+	background: -webkit-linear-gradient(left,#00007D,white);
+	margin :0px;
+	height: 100px;
+	vertical-align: middle;
+}
+
+header h1{
+	position:absolute;
+	color: white;
+	margin :0px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+@media(min-width:768px){
+	.container{
+		width:750px
+	}
+}
+
+@media(min-width:992px){
+	.container{
+		width:970px
+	}
+}
+
+@media(min-width:1200px){
+	.container{
+		width:1170px
+	}
+}
